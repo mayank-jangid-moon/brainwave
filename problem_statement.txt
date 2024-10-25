@@ -1,0 +1,6 @@
+In the age of rampant fake social media accounts, our project aims to develop an AI-driven solution to detect and eliminate fake profiles with high accuracy. By analyzing behavior patterns, profile metadata, and content, the model can distinguish between real and fake accounts in real time.
+
+The Key Features of our project are Multi-Modal Analysis that Combines profile data (followers, engagement) and NLP for text analysis (bios, posts), Behavioral and Graph Analysis, that detects unusual patterns in interactions (comments, likes) and uses graph theory to identify clusters of suspicious accounts, Adaptive Learning, Incorporates continuous learning to stay ahead of evolving fake account behaviors.
+
+We aim at using Semi-Supervised Learning for detection of Fake Account in this case because of lack of labelled data available and a high cost of aquisition.
+This solution would help in enhancing social media integrity, helping platforms combat fake accounts, phishing, and misinformation while providing real-time detection across networks.
