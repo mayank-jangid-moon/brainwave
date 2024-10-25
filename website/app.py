@@ -34,7 +34,8 @@ def post_index():
     ids = request.form['ids'].split('\n')
     for i in range(len(ids)):
         ids[i] = ids[i].strip("\r\n")
-    return asyncio.run(scrape([id]))
+    print(ids)
+    return asyncio.run(scrape(ids))
 
 if __name__ == "__main__":
     app.run(port=5000)
