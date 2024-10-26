@@ -1,56 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sedan+SC&display=swap');
+
+* {
+    font-family: "Inter", sans-serif
+    
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    height: 100vh; 
+    align-items: center; 
+    padding: 20px; 
+}
+
 header {
     background-color: black;
     color: aliceblue;
     text-align: end;
-    border: 1px solid  rgb(133, 250, 0);
-    border-radius: 10px;
     padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Adjusted for better alignment */
+    align-items: center; /* Vertically center items */
     height: 10vh;
-    top:1px;
+    
     position: absolute;
-    width: 99.9vw;
-    left: 0px;
-    right: 0px;
+    width: 100vw; /* Changed to ensure full width */
+    
+    
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); Added shadow for depth */
+    z-index: 10; /* Ensure header is on top */
 }
 
-main {
-    color: rgb(240, 255, 255);
-    height: 90vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: rgba(64, 60, 60, 0.907);
-}
-
-header>input{
+header > input {
     margin-right: 10%;
     margin-top: 20px;
     width: 200px;
     height: 25px;
     border-radius: 10px;
-    border: 0px solid rgb(255, 255, 255);
+    border: none; /* Simplified border */
+    padding: 5px; /* Added padding */
     background-color: white;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 header > h1 {
-    /* margin-left: 50px;
-    margin-top: 10px; */
-    margin: 0;
     font-size: 35px;
     font-weight: 700;
+    margin-left: 20px;
+    transition: transform 0.3s ease; /* Smooth scaling effect */
 }
 
-main> h1 {
-    color: rgb(73, 221, 24);
+header > h1:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.right {
+    color: rgb(240, 255, 255);
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 20px;
+    flex-direction: column;
+    padding: 20px; /* Additional padding */
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    
+
+    
+}
+
+body {
+    background: linear-gradient(135deg, rgba(64, 60, 60, 0.9), rgba(20, 20, 20, 0.9));
+    margin: 0; /* Remove default body margin */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-image: url("triangles-1430105_1920.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100vw;
+    overflow: hidden;
+    color: aliceblue;
+}
+
+.submit {
+    color: rgb(0, 0, 0);
+    background-color: aliceblue;
+    padding: 10px 20px; /* More padding for a button look */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Pointer cursor to indicate button */
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.submit:hover {
+    color: white;
+    background-color: black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
+
+.placeholder:active {
+    color: rgb(0, 0, 0);
+}
+
+.form {
+    /* border: 1px solid rgb(133, 250, 0); */
+   border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; 
+    background-color: rgb(63, 63, 63);
+    height: 150px;
+    font-size: 15px;
+    width: 30vw; /* Added width */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+    position: relative;
+    height: 35vh;
+    margin-right: 100px;
+    opacity: 0.8;
+}
+
+.form:hover {
+    transform: scale(1.02); /* Slight scaling on hover */
+}
+
+
+form > input[type="submit"] {
+   margin: 0px;
+   width: 100%;
+   background-color: rgb(28, 51, 198);
+   color: aliceblue;
+    border-radius: 0px;
+   border-bottom-left-radius: 30px;
+   border-bottom-right-radius: 30px;
+   padding: 15px 0px;
+   font-weight: bold;
+
+
+}
+
+.right > h1 {
+    color: rgb(9, 11, 8);
+    font-size: 28px; 
+    margin-bottom: 15px; 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
+}
+.form label{
+    margin-top: 20px;
+    color: white;
+}
+form > input[type="text"] {
+    width: 80%;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.337);
+    background: transparent;
+    padding: 15px;
+    outline: none;
+
+}
+form > input[type="text"]:active{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.left {
+    font-weight: bold;
+    font-size: 17px;
 }

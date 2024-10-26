@@ -1,0 +1,12 @@
+{%extends 'base.html' %}
+{%block main%}
+<link rel="stylesheet" href="{{url_for('static', filename='form.css')}}">
+<form action="\" method="post" class="form">
+	<label for="ids" class="id">Enter insta ids to check whether real or fake:</label>
+	<br>
+	<!--<input type="text" name="ids" id="ids" placeholder="....">-->
+	<textarea id="ids" name="ids" cols="30" rows="5" placeholder="Line separated IDs"></textarea>
+	<br>
+	<input type="submit" value="SUBMIT" class="submit"> 
+</form>
+{%endblock%}
