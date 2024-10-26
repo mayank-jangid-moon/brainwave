@@ -30,6 +30,6 @@ df1.columns
 columns_use = ["followersCount","followingCount","isPrivate","isVerified","postsCount","username_len","username_num_count","username_ratio","isBio"]
 df1 = df1[columns_use]
 
-df1.dropna(axis="rows", inplace=True)
+df1 = df1.replace(np.NaN, 0)
 
 
