@@ -8,7 +8,7 @@ from apify_client import ApifyClient
 
 app = Flask(__name__)
 apify_client = ApifyClient(dotenv_values(".env")["TOKEN"])
-model_priv = joblib.load('./model_svm_private.pkl')
+model_priv = joblib.load('./model_random_forest_private.pkl')
 model_pub = joblib.load('./model_public_final.pkl')
 
 def scrape(id):
@@ -47,7 +47,7 @@ def post_index():
             data[0] = "fake"
         data[1] = max_res
         data[2] = summary
-        if item["private"] and data[0] == "real" and max_res < 0.91:
+        if item["private"] and data[0] == "real" and max_res < 0.733:
             data[0] = "fake"
     except:
         data[0] = "non-existent"
