@@ -32,8 +32,8 @@ main{
     margin-top: 20px;
     flex-direction: column;
     padding: 20px; /* Additional padding */
-    
 }
+
 header {
     background-color: black;
     color: aliceblue;

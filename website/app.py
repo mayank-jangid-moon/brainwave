@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-# import pickle
 import joblib
 import pandas as pd
 from pipeline import private_pipeline, public_pipeline
@@ -9,10 +8,8 @@ from apify_client import ApifyClient
 
 app = Flask(__name__)
 apify_client = ApifyClient(dotenv_values(".env")["TOKEN"])
-# model_priv = pickle.load(open('./model_svm_private.pkl', 'rb'))
-# model_pub = pickle.load(open('./model_svm_public.pkl', 'rb'))
 model_priv = joblib.load('./model_svm_private.pkl')
-model_pub = joblib.load('./model_svm_public.pkl')
+model_pub = joblib.load('./model_public_final.pkl')
 
 def scrape(id):
     input = { "usernames": id }
@@ -29,25 +26,33 @@ def get_index():
 def post_index():
     id = request.form['ids']
     id = id.strip("\r\n")
-    # return asyncio.run(scrape(ids))
     item = scrape([id])[0]
     model = model_pub
-    # try:
     df = pd.DataFrame([item])
-    if item["private"]:
-        model = model_priv
-        df = private_pipeline(df)
-    else:
-        df = public_pipeline(df)
-    prediction = model.predict(df)[0]
-    result = model.predict_proba(df).tolist()[0]
-    max_res = max(result)
-    summary = ""
-    if prediction == 0:
-        summary = ondemand_summary(id)
-    return str([prediction, max_res, summary])
-    # except:
-    #     return "Non-existent id"
+    data = ["", 0, "", False]
+    try:
+        if item["private"]:
+            model = model_priv
+            df = private_pipeline(df)
+        else:
+            df = public_pipeline(df)
+        prediction = model.predict(df)[0]
+        result = model.predict_proba(df).tolist()[0]
+        max_res = max(result)
+        summary = ""
+        if prediction == 0:
+            data[0] = "real"
+            summary = ondemand_summary(id)
+        else:
+            data[0] = "fake"
+        data[1] = max_res
+        data[2] = summary
+        if item["private"] and data[0] == "real" and max_res < 0.91:
+            data[0] = "fake"
+    except:
+        data[0] = "non-existent"
+        data[3] = True
+    return render_template("SeUI.html", data=data)
 
 if __name__ == "__main__":
     app.run(port=5000)

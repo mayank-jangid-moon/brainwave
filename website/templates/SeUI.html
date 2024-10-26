@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='SeUI.css')}}">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1>Detector Result</h1>
-    </header>
-    <main>
-        <div class="left">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, dicta ad quisquam delectus natus corrupti. Sit laboriosam facilis, tempore velit beatae odio? Quidem, molestias quis culpa ut eum magni. Quod, nam amet est quaerat molestias at perspiciatis fuga perferendis eius corporis quasi ea porro dolorum enim rem totam nemo quibusdam necessitatibus in exercitationem accusamus odit mollitia velit architecto? Accusantium, ipsam facere accusamus, corrupti veritatis hic rem molestiae nihil consequatur culpa nesciunt libero a! Est molestiae perferendis minima provident earum, molestias nihil iusto cum odio. Sint temporibus accusamus, aliquid fugit soluta impedit officia veniam vel ducimus voluptates magnam. Necessitatibus asperiores non incidunt vel beatae distinctio sequi natus voluptatem quas fugit corrupti temporibus velit quae perferendis ipsa ab aperiam molestiae ipsam architecto quaerat nam, enim nobis inventore. Aperiam eos ullam, veniam iure odio inventore assumenda magnam maxime quod neque alias? Atque quo odit quasi qui fuga numquam nisi, aut omnis nemo amet veniam dolore consequuntur magni, ipsam earum voluptates nobis. Accusamus suscipit tenetur aliquam? Exercitationem rerum nobis sed perspiciatis mollitia a animi eum accusamus facere corporis cupiditate, labore magnam quis dicta beatae et iure voluptatem unde quibusdam quod magni tempore? Magnam eius sunt hic officia id, optio temporibus numquam praesentium ab similique eveniet mollitia perspiciatis quae molestias minus beatae facere tenetur tempora quasi ducimus soluta totam itaque necessitatibus. Enim eveniet hic laboriosam officiis eaque voluptate dolorum delectus! Sunt soluta qui, commodi nemo vitae expedita nisi eveniet.
-            </p>
-        </div>
-        <div class="right">
-            <p> 
-                We are ... % sure that the ID is real or fake
-            </p>
-        </div>
-        </div>
-    </main>
-    <footer></footer>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{url_for('static', filename='SeUI.css')}}">
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<h1>Detector Result</h1>
+		</header>
+		<main>
+			<div class="left">
+				{%if data[3] == false%}
+				<p>
+					{{data[2]}}
+				</p>
+				{%endif%}
+			</div>
+			<div class="right">
+				<p>
+					We think that the ID is {{data[0]}}
+				</p>
+			</div>
+		</main>
+		<footer></footer>
+	</body>
 </html>
